@@ -8,7 +8,7 @@ var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
 
-var _config = require('../config');
+var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
 
