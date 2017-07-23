@@ -74,12 +74,12 @@ export default({config, db}) => {
         res.status(500).send(err);
         return;
       }
-      
+
       if(foodtruck == null){
         res.status(404).send("FoodTruck not Found");
         return;
       }
-      
+
       FoodTruck.remove({_id: req.params.id
       }, (err,foodtruck) => {
         if(err){
@@ -139,7 +139,7 @@ export default({config, db}) => {
   api.get('/reviews/:id', (req,res) =>{
     Review.find({foodtruck: req.params.id}, (err,reviews) =>{
       if(err){
-        res.sent(err);
+        res.send(err);
       }
 
       res.json(reviews);
