@@ -146,16 +146,16 @@ export default({config, db}) => {
     });
   });
 
-    // '/v1/foodtruck/foodtype/:foodtype' - Read All
-    api.get('/foodtype/:foodtype', (req,res) =>{
-      FoodTruck.find({foodtype: req.params.foodtype}, (err, foodtrucks) =>{
-        if(err){
-          res.send(err);
-        }
+  // '/v1/foodtruck/foodtype/:foodtype' - Read All
+  api.get('/foodtype/:foodtype', (req,res) =>{
+    FoodTruck.find({foodtype: req.params.foodtype}, (err, foodtrucks) =>{
+      if(err){
+        res.send(err);
+      }
 
-        res.json(foodtrucks);
-      });
+      res.json(foodtrucks);
     });
+  });
 
   return api;
 }
