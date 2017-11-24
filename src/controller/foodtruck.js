@@ -141,17 +141,6 @@ export default({config, db}) => {
     });
   });
 
-  // '/v1/foodtruck/review' - Read All -- Work in progress
-  api.get('/review', (req,res) =>{
-    Review.find({}, (err, reviews) =>{
-      if(err){
-        res.send(err);
-      }
-
-      res.json(reviews);
-    });
-  });
-
   // '/v1/foodtruck/foodtype/:foodtype' - Read All
   api.get('/foodtype/:foodtype', (req,res) =>{
     FoodTruck.find({foodtype: req.params.foodtype}, (err, foodtrucks) =>{
