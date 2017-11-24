@@ -99,11 +99,11 @@ export default({config, db}) => {
     });
   });
 
-  // add review for a specific foodtruck id
+  // add a review by a specific foodtruck id
   // '/v1/foodtruck/reviews/add/:id'
-  api.post('/review/add/:id', authenticate, (req, res) =>{
-    FoodTruck.findById(req.params.id, (err, foodtruck) =>{
-      if(err){
+  api.post('/reviews/add/:id', authenticate, (req, res) => {
+    FoodTruck.findById(req.params.id, (err, foodtruck) => {
+      if (err) {
         res.send(err);
       }
       let newReview = new Review();
@@ -111,19 +111,16 @@ export default({config, db}) => {
       newReview.title = req.body.title;
       newReview.text = req.body.text;
       newReview.foodtruck = foodtruck._id;
-
       newReview.save((err, review) => {
-        if(err){
+        if (err) {
           res.send(err);
         }
-
         foodtruck.reviews.push(newReview);
         foodtruck.save(err => {
-          if(err){
+          if (err) {
             res.send(err);
           }
-
-          res.json({message: "Food truck review saved!"});
+          res.json({ message: 'Food truck review saved' });
         });
       });
     });
