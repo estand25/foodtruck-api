@@ -106,11 +106,12 @@ export default({config, db}) => {
       if (err) {
         res.send(err);
       }
-      let newReview = new Review();
 
+      let newReview = new Review();
       newReview.title = req.body.title;
       newReview.text = req.body.text;
       newReview.foodtruck = foodtruck._id;
+
       newReview.save((err, review) => {
         if (err) {
           res.send(err);
